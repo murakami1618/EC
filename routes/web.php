@@ -24,6 +24,4 @@ Route::get("/item/{id}",function($id){
     }
 });
 
-Route::get("/cart/list",function(){
-    return view("cart_list");
-});
+//
