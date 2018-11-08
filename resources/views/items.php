@@ -23,6 +23,11 @@
                     <td><?=$item->make?></td>
                     <td><a href="item/<?=$item->id?>">詳細</a></td>
                 　</tr>
+                <form action="/cart/add" method="post">
+                    <?= csrf_field()?>
+                    <input type="hidden" name="item_id" value="<?=$item->id?>">
+                    <input type="submit" value="カートに追加">
+                </form>
             </table>
         <?php endforeach; ?>
     </div>
