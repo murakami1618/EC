@@ -1,0 +1,22 @@
+table{
+    text-align: center;
+    width:75%;
+}
+.img{
+    width:100%;
+    border-radius: 10px;
+}
+table.been th{
+    width: 20%;
+}
+table.d th{
+width: 50px;
+}
+.been{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    background: #FFF;
+    border: solid 3px #761b18;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
