@@ -1,3 +1,4 @@
+<title>注文確定画面</title>
 <form action="/order" method="post">
     <?= csrf_field()?>
     名前：<input type="text" value="" name="name">

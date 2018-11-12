@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>ショッピングサイト</title>
+    <title>商品詳細</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 

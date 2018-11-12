@@ -1,3 +1,4 @@
+<title>ありがとうございました</title>
 <p>注文ありがとうございました。</p>
 
 <form action="/top" method="post">
