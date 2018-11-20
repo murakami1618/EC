@@ -7,6 +7,10 @@
 </head>
 
 <body>
+<header>
+    <h1>へっだー</h1>
+</header>
+<div class="wrap">
         <table class="d">
             <tr>
                 <th><?=$item->name?></th>
@@ -23,14 +27,16 @@
                 <td><?=$item->koku?></td>
                 <td><?=$item->kaori?></td>
                 <td><?=$item->san?></td>
-
             </tr>
         </table>
-        <h3>商品情報</h3>
-        <?=$item->description?>
+        <div class="desc">
+            <h3>商品情報</h3>
+            <?=$item->description?>
+        </div>
         <form action="/top" method="post">
             <?= csrf_field()?>
-            <input type="submit" value="トップページに戻る">
+            <input class="btn" type="submit" value="トップページに戻る">
         </form>
+</div>
 </body>
 </html>
