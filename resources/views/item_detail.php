@@ -26,6 +26,8 @@
 
             </tr>
         </table>
+        <h3>商品情報</h3>
+        <?=$item->description?>
         <form action="/top" method="post">
             <?= csrf_field()?>
             <input type="submit" value="トップページに戻る">

@@ -12,6 +12,9 @@ table.been th{
 table.d th{
 width: 50px;
 }
+table.d td{
+    font-size: 20px;
+}
 .been{
     padding: 0.5em 1em;
     margin: 2em 0;
