@@ -7,6 +7,10 @@
 </head>
 
 <body>
+<header>
+    <h1>へっだー</h1>
+</header>
+<div class="wrap">
     <div class="item">
 
         <?php foreach($cartItems as $cartItem): ?>
@@ -28,15 +32,15 @@
 
         <form action="/cart/clear" method="post">
             <?= csrf_field()?>
-            <input type="submit" value="カートを空に">
+            <input class="btn" type="submit" value="カートを空に">
         </form>
         <form action="/order" method="get">
             <?= csrf_field()?>
-            <input type="submit" value="購入手続">
+            <input class="btn" type="submit" value="購入手続">
         </form>
         <form action="/top" method="post">
             <?= csrf_field()?>
-            <input type="submit" value="買い物を続ける">
+            <input class="btn" type="submit" value="買い物を続ける">
         </form>
-
+</div>
 </body>

@@ -5,8 +5,11 @@
         <title>ショッピングサイト</title>
         <link rel="stylesheet" href="/css/style.css">
     </head>
-
+    <header>
+        <h1>へっだー</h1>
+    </header>
     <body>
+    <div class="wrap">
     <div class="item">
 
         <?php foreach($items as $item): ?>
@@ -26,14 +29,15 @@
                     <td>
                         <form action="/cart/add" method="post">
                             <?= csrf_field()?>
-                            <input type="hidden" name="item_id" value="<?=$item->id?>">
-                            <input type="submit" value="カートに追加">
+                            <input class="btn" type="hidden" name="item_id" value="<?=$item->id?>">
+                            <input class="btn" type="submit" value="カートに追加">
                         </form>
                     </td>
                 </tr>
 
             </table>
         <?php endforeach; ?>
+    </div>
     </div>
     </body>
 </html>
