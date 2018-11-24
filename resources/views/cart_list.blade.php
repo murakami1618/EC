@@ -29,17 +29,16 @@
         <?php endforeach; ?>
     </div>
 
-
-        <form action="/cart/clear" method="post">
-            <?= csrf_field()?>
+        <form class="form" action="/cart/clear" method="post">
+            @csrf
             <input class="btn" type="submit" value="カートを空に">
         </form>
-        <form action="/order" method="get">
-            <?= csrf_field()?>
+        <form class="form" action="/order" method="get">
+            @csrf
             <input class="btn" type="submit" value="購入手続">
         </form>
-        <form action="/top" method="post">
-            <?= csrf_field()?>
+        <form class="form" action="/top" method="post">
+            @csrf
             <input class="btn" type="submit" value="買い物を続ける">
         </form>
 </div>
