@@ -51,12 +51,22 @@ Route::post("/cart/add",function(){
 });
 //注文画面
 Route::get("/order",function(){
-    return view("order");
+    $erro = session()->get("FORM_MESSAGE");
+    return view("order",["erro"=>$erro]);
 });
 
 
 //注文処理
 Route::post("/order",function(){
+
+    if(request()->get("name") == ""){
+        session()->put("FORM_MESSAGE","名前を入力してください");
+        return redirect("/order");
+    }
+    if(request()->get("address") == ""){
+        session()->put("FORM_MESSAGE","住所を入力してください");
+        return redirect("/order");
+    }
 
     // ここで カートの中身をDBに保存する
     DB::insert("INSERT into orders (name,address,tel,email,orders) VALUES (?,?,?,?,?)",[
@@ -67,7 +77,6 @@ Route::post("/order",function(){
         json_encode(session()->get("CART_ITEMS"))
     ]);
     session()->forget("CART_ITEMS"); // ここでカートを空に
-
     return redirect("/order/thanks");
 });
 

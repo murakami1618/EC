@@ -19,14 +19,15 @@
         <th>電話番号</th>
         <th>Email</th>
         </tr>
-        <td><input type="text" value="" name="name"></td>
-        <td><input type="text" value="" name="address"></td>
-        <td><input type="text" value="" name="tel"></td>
-        <td><input type="text" value="" name="email"></td>
+        <td><input type="text" value="" name="name" placeholder=氏名></td>
+        <td><input type="text" value="" name="address" placeholder="住所"></td>
+        <td><input type="number" value="" name="tel" placeholder="電話番号"></td>
+        <td><input type="text" value="" name="email" placeholder="メールアドレス"></td>
         <td><input class="btn" type="submit" value="注文"></td>
     </table>
-
-</form>
+    <?php
+    echo $erro;
+    ?>
 </div>
 </body>
 </html>
