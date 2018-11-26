@@ -23,6 +23,7 @@ Route::get("/item/{id}",function($id){
         return abort(404);
     }
 });
+
 //商品カート
 Route::get("/cart/list",function(){
     // セッションからカートの情報を取り出す
@@ -85,4 +86,8 @@ Route::post("/cart/clear",function(){
 
 Route::post("/top",function(){
     return redirect("/items");
+});
+
+Route::post("/cart",function(){
+    return redirect("/cart/list");
 });

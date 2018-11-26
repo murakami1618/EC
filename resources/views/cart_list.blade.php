@@ -7,9 +7,24 @@
 </head>
 
 <body>
+
 <header>
     <h1>へっだー</h1>
+    <form class="form" action="/order" method="get">
+        @csrf
+        <input class="btn" type="submit" value="購入手続">
+    </form>
+
+    <form class="form" action="/top" method="post">
+        @csrf
+        <input class="btn" type="submit" value="トップページ">
+    </form>
+    <form class="form" action="/cart" method="post">
+        @csrf
+        <input class="btn" type="submit" value="カート">
+    </form>
 </header>
+
 <div class="wrap">
     <div class="item">
 
@@ -33,13 +48,6 @@
             @csrf
             <input class="btn" type="submit" value="カートを空に">
         </form>
-        <form class="form" action="/order" method="get">
-            @csrf
-            <input class="btn" type="submit" value="購入手続">
-        </form>
-        <form class="form" action="/top" method="post">
-            @csrf
-            <input class="btn" type="submit" value="買い物を続ける">
         </form>
 </div>
 </body>
