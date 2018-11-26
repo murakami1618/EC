@@ -51,20 +51,45 @@ Route::post("/cart/add",function(){
 });
 //注文画面
 Route::get("/order",function(){
-    $erro = session()->get("FORM_MESSAGE");
-    return view("order",["erro"=>$erro]);
+    $errors = session()->get("ERRRO_MESSAGES",[]);
+    $inputs = session()->get("OLD_FORM",[]);
+    session()->get("ERROR_MESSAGES");
+    session()->get("OLD_FORM");
+
+    return view("order",[
+        "inputs" => $inputs,
+        "errors" => $errors
+    ]);
 });
 
 
 //注文処理
 Route::post("/order",function(){
 
+    $error = false; //フォームにエラーが有るかどうか
+    $errorMessage = []; // エラーメッセージ
+
     if(request()->get("name") == ""){
-        session()->put("FORM_MESSAGE","名前を入力してください");
-        return redirect("/order");
+        $error = true;
+        $errorMessage[] = "※名前を入力してください";
     }
     if(request()->get("address") == ""){
-        session()->put("FORM_MESSAGE","住所を入力してください");
+        $error = true;
+        $errorMessage[] = "※名前を入力してください";
+    }
+
+    if(request()->get("tel") == ""){
+        $error = true;
+        $errorMessage[] = "※電話番号を入力してください";
+    }
+
+    if(request()->get("email") == ""){
+        $error = true;
+        $errorMessage[] = "※メールアドレスを入力してください";
+    }
+    if($error){
+        session()->put("FORM_MESSAGES",$errorMessage);
+        session()->put("OLD_FORM",request()->all());
         return redirect("/order");
     }
 

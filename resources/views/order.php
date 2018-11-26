@@ -10,24 +10,19 @@
 </header>
 <body>
 <div class="wrap">
-<form action="/order" method="post">
-    <?= csrf_field()?>
-    <table>
-        <tr>
-        <th>名前</th>
-        <th>住所</th>
-        <th>電話番号</th>
-        <th>Email</th>
-        </tr>
-        <td><input type="text" value="" name="name" placeholder=氏名></td>
-        <td><input type="text" value="" name="address" placeholder="住所"></td>
-        <td><input type="number" value="" name="tel" placeholder="電話番号"></td>
-        <td><input type="text" value="" name="email" placeholder="メールアドレス"></td>
-        <td><input class="btn" type="submit" value="注文"></td>
-    </table>
-    <?php
-    echo $erro;
-    ?>
+    <form action="/order" method="POST">
+        <?=csrf_field()?>
+        名前：<input type="text" name="name" value="<?=$inputs["name"]??''?>">
+        住所：<input type="text" name="address" value="<?=$inputs["address"]??''?>">
+        電話番号：<input type="text" name="tel" value="<?=$inputs["tel"]??''?>">
+        Email：<input type="text"  name="email" value="<?=$inputs["email"]??''?>">
+        <input type="submit" value="注文">
+    </form>
+
+    <?php foreach($errors as $errors): ?>
+                <h1><?=$errors->name?></h1>
+    <?php endforeach; ?>
+
 </div>
 </body>
 </html>
