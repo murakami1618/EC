@@ -7,14 +7,7 @@
 </head>
 
 <body>
-
 <header>
-    <h1>へっだー</h1>
-    <form class="form" action="/order" method="get">
-        @csrf
-        <input class="btn" type="submit" value="購入手続">
-    </form>
-
     <form class="form" action="/top" method="post">
         @csrf
         <input class="btn" type="submit" value="トップページ">
@@ -24,7 +17,6 @@
         <input class="btn" type="submit" value="カート">
     </form>
 </header>
-
 <div class="wrap">
     <div class="item">
 
@@ -43,11 +35,13 @@
             </table>
         <?php endforeach; ?>
     </div>
-
         <form class="form" action="/cart/clear" method="post">
             @csrf
             <input class="btn" type="submit" value="カートを空に">
         </form>
-        </form>
+    <form class="form" action="/order" method="get">
+        @csrf
+        <input class="btn" type="submit" value="購入手続">
+    </form>
 </div>
 </body>

@@ -8,7 +8,7 @@
 
 <body>
 <header>
-    <h1>へっだー</h1>
+    <h1>　</h1>
     <form class="form" action="/order" method="get">
         @csrf
         <input class="btn" type="submit" value="購入手続">

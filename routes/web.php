@@ -55,7 +55,6 @@ Route::get("/order",function(){
     $inputs = session()->get("OLD_FORM",[]);
     session()->get("ERROR_MESSAGES");
     session()->get("OLD_FORM");
-
     return view("order",[
         "inputs" => $inputs,
         "errors" => $errors
@@ -75,20 +74,19 @@ Route::post("/order",function(){
     }
     if(request()->get("address") == ""){
         $error = true;
-        $errorMessage[] = "※名前を入力してください";
+        $errorMessage[] = "※住所を入力してください";
     }
 
     if(request()->get("tel") == ""){
         $error = true;
         $errorMessage[] = "※電話番号を入力してください";
     }
-
     if(request()->get("email") == ""){
         $error = true;
         $errorMessage[] = "※メールアドレスを入力してください";
     }
     if($error){
-        session()->put("FORM_MESSAGES",$errorMessage);
+        session()->put("ERRRO_MESSAGES",$errorMessage);
         session()->put("OLD_FORM",request()->all());
         return redirect("/order");
     }
