@@ -23,6 +23,7 @@ Route::get("/item/{id}",function($id){
         return abort(404);
     }
 });
+
 //商品カート
 Route::get("/cart/list",function(){
     // セッションからカートの情報を取り出す
@@ -50,12 +51,45 @@ Route::post("/cart/add",function(){
 });
 //注文画面
 Route::get("/order",function(){
-    return view("order");
+    $errors = session()->get("ERRRO_MESSAGES",[]);
+    $inputs = session()->get("OLD_FORM",[]);
+    session()->get("ERROR_MESSAGES");
+    session()->get("OLD_FORM");
+    return view("order",[
+        "inputs" => $inputs,
+        "errors" => $errors
+    ]);
 });
 
 
 //注文処理
 Route::post("/order",function(){
+
+    $error = false; //フォームにエラーが有るかどうか
+    $errorMessage = []; // エラーメッセージ
+
+    if(request()->get("name") == ""){
+        $error = true;
+        $errorMessage[] = "※名前を入力してください";
+    }
+    if(request()->get("address") == ""){
+        $error = true;
+        $errorMessage[] = "※住所を入力してください";
+    }
+
+    if(request()->get("tel") == ""){
+        $error = true;
+        $errorMessage[] = "※電話番号を入力してください";
+    }
+    if(request()->get("email") == ""){
+        $error = true;
+        $errorMessage[] = "※メールアドレスを入力してください";
+    }
+    if($error){
+        session()->put("ERRRO_MESSAGES",$errorMessage);
+        session()->put("OLD_FORM",request()->all());
+        return redirect("/order");
+    }
 
     // ここで カートの中身をDBに保存する
     DB::insert("INSERT into orders (name,address,tel,email,orders) VALUES (?,?,?,?,?)",[
@@ -66,7 +100,6 @@ Route::post("/order",function(){
         json_encode(session()->get("CART_ITEMS"))
     ]);
     session()->forget("CART_ITEMS"); // ここでカートを空に
-
     return redirect("/order/thanks");
 });
 
@@ -85,4 +118,8 @@ Route::post("/cart/clear",function(){
 
 Route::post("/top",function(){
     return redirect("/items");
+});
+
+Route::post("/cart",function(){
+    return redirect("/cart/list");
 });

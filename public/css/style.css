@@ -1,10 +1,13 @@
 header{
-    background-color: #857b26;
-    margin: -25px -10px;
-    text-align: center;
+background-image:url("../images/been.jpg");
+    width: 100%;
+    height: 100px;
+    opacity: 0.7;
 }
-
-
+body{
+    background-color:#f7f7f7;
+    margin: 0px 0px;
+}
 table{
     text-align: center;
     width:75%;
@@ -23,7 +26,7 @@ width: 30px;
     margin: 2em 0;
     font-weight: bold;
     background: #FFF;
-    border: solid 3px #761b18;/*線*/
+    border: solid 1px #761b18;/*線*/
     border-radius: 10px;/*角の丸み*/
 }
 table.been th{
@@ -34,9 +37,16 @@ table.been th{
 }
 
 .wrap{
-    margin-left: 20%;
+    margin-left: 30%;
 }
-.btn{
-    padding: 15px 40px;
-    font-size: 30px;
+
+.form{
+    display: inline;
+}
+.ty {
+ text-align: center;
+
+}
+.tyb{
+    text-align: center;
 }
