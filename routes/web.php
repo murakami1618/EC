@@ -100,6 +100,8 @@ Route::post("/order",function(){
         json_encode(session()->get("CART_ITEMS"))
     ]);
     session()->forget("CART_ITEMS"); // ここでカートを空に
+    session()->forget("OLD_FORM");
+    session()->forget("ERRRO_MESSAGES");
     return redirect("/order/thanks");
 });
 

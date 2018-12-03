@@ -9,26 +9,27 @@
 <body>
 
 <header>
-    <h1>　</h1>
-
-
     <form class="form" action="/top" method="post">
         @csrf
-        <input class="btn" type="submit" value="トップページ">
+        <input class="topbtn" type="submit" value="トップページ">
     </form>
     <form class="form" action="/cart" method="post">
         @csrf
-        <input class="btn" type="submit" value="カート">
+        <input class="topbtn" type="submit" value="カート">
+    </form>
+    <form class="form" action="/order" method="get">
+        @csrf
+        <input class="topbtn" type="submit" value="購入手続">
     </form>
 </header>
 <body>
 <div class="wrap">
     <form action="/order" method="POST">
         <?=csrf_field()?>
-        名前：<input type="text" name="name" value="<?=$inputs["name"]??''?>">
-        住所：<input type="text" name="address" value="<?=$inputs["address"]??''?>">
-        電話番号：<input type="text" name="tel" value="<?=$inputs["tel"]??''?>">
-        Email：<input type="text"  name="email" value="<?=$inputs["email"]??''?>">
+        名前：<input type="text" name="name" value="<?=$inputs["name"]??''?>" placeholder="名前入力">
+        住所：<input type="text" name="address" value="<?=$inputs["address"]??''?>"placeholder="住所入力">
+        電話番号：<input type="text" name="tel" value="<?=$inputs["tel"]??''?>"placeholder="電話番号入力">
+        Email：<input type="text"  name="email" value="<?=$inputs["email"]??''?>"placeholder="メールアドレス入力">
         <input type="submit" value="注文">
     </form>
     <?php foreach($errors as $errors): ?>

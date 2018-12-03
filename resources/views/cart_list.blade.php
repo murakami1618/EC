@@ -10,11 +10,15 @@
 <header>
     <form class="form" action="/top" method="post">
         @csrf
-        <input class="btn" type="submit" value="トップページ">
+        <input class="topbtn" type="submit" value="トップページ">
     </form>
     <form class="form" action="/cart" method="post">
         @csrf
-        <input class="btn" type="submit" value="カート">
+        <input class="topbtn" type="submit" value="カート">
+    </form>
+    <form class="form" action="/order" method="get">
+        @csrf
+        <input class="topbtn" type="submit" value="購入手続">
     </form>
 </header>
 <div class="wrap">
